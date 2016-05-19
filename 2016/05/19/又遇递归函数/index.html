@@ -3,29 +3,26 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Java核心技术再理解理解：Java中类的加载原理 | IMan</title>
+    <title>又遇递归函数 | IMan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="Java" />
+        <meta name="keywords" content="算法,Python" />
     
-    <meta name="description" content="虽然每天都用Java，现在尝试做一些项目也是用的Java，但是总感觉对这门语言学习的不够深入，对Java的认识也只是停留在别人博客中所说的，没有自己独特的理解。所以最近又把《Java核心技术》又重新的读了一遍。感觉对Java的认识还是比较欠缺。感觉学会一门语言并不是说会用就可以了，真正的理解这门语言，编程能力才会有质的提升。
-
-下面我们就先从Java中最基本的类开始，探讨一下我们写的程序中的类是何">
+    <meta name="description" content="之前再写【算法】算法初步：聊一聊常见排序的算法的时候简单的总结了一下递归的用法。这里再详细的归纳一下递归这种编程技术。
+##关于递归递归通俗一点的解释就是函数的自调用。举个例子来说，我们计算阶乘n! = 1\2*3*4*….*n-1*n，用函数fn(n)表示。通过一些数学处理可以归纳出通项公式fn(n) = fn(n-1)*n*。所以，只有当n = 1的时候才需要特殊处理。于是，用递归方法写的fn">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java核心技术再理解理解：Java中类的加载原理">
-<meta property="og:url" content="http://yoursite.com/2016/05/19/Java核心技术再理解理解：Java中类的加载原理/index.html">
+<meta property="og:title" content="又遇递归函数">
+<meta property="og:url" content="http://yoursite.com/2016/05/19/又遇递归函数/index.html">
 <meta property="og:site_name" content="IMan">
-<meta property="og:description" content="虽然每天都用Java，现在尝试做一些项目也是用的Java，但是总感觉对这门语言学习的不够深入，对Java的认识也只是停留在别人博客中所说的，没有自己独特的理解。所以最近又把《Java核心技术》又重新的读了一遍。感觉对Java的认识还是比较欠缺。感觉学会一门语言并不是说会用就可以了，真正的理解这门语言，编程能力才会有质的提升。
-
-下面我们就先从Java中最基本的类开始，探讨一下我们写的程序中的类是何">
-<meta property="og:image" content="http://yoursite.com/images/Java核心技术再理解理解：Java中类的加载原理.jpg">
-<meta property="og:updated_time" content="2016-05-19T07:47:30.087Z">
+<meta property="og:description" content="之前再写【算法】算法初步：聊一聊常见排序的算法的时候简单的总结了一下递归的用法。这里再详细的归纳一下递归这种编程技术。
+##关于递归递归通俗一点的解释就是函数的自调用。举个例子来说，我们计算阶乘n! = 1\2*3*4*….*n-1*n，用函数fn(n)表示。通过一些数学处理可以归纳出通项公式fn(n) = fn(n-1)*n*。所以，只有当n = 1的时候才需要特殊处理。于是，用递归方法写的fn">
+<meta property="og:image" content="http://yoursite.com/images/又遇递归函数.jpg">
+<meta property="og:updated_time" content="2016-05-19T07:53:24.242Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java核心技术再理解理解：Java中类的加载原理">
-<meta name="twitter:description" content="虽然每天都用Java，现在尝试做一些项目也是用的Java，但是总感觉对这门语言学习的不够深入，对Java的认识也只是停留在别人博客中所说的，没有自己独特的理解。所以最近又把《Java核心技术》又重新的读了一遍。感觉对Java的认识还是比较欠缺。感觉学会一门语言并不是说会用就可以了，真正的理解这门语言，编程能力才会有质的提升。
-
-下面我们就先从Java中最基本的类开始，探讨一下我们写的程序中的类是何">
-<meta name="twitter:image" content="http://yoursite.com/images/Java核心技术再理解理解：Java中类的加载原理.jpg">
+<meta name="twitter:title" content="又遇递归函数">
+<meta name="twitter:description" content="之前再写【算法】算法初步：聊一聊常见排序的算法的时候简单的总结了一下递归的用法。这里再详细的归纳一下递归这种编程技术。
+##关于递归递归通俗一点的解释就是函数的自调用。举个例子来说，我们计算阶乘n! = 1\2*3*4*….*n-1*n，用函数fn(n)表示。通过一些数学处理可以归纳出通项公式fn(n) = fn(n-1)*n*。所以，只有当n = 1的时候才需要特殊处理。于是，用递归方法写的fn">
+<meta name="twitter:image" content="http://yoursite.com/images/又遇递归函数.jpg">
     
 
     
@@ -143,62 +140,44 @@
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-Java核心技术再理解理解：Java中类的加载原理" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-又遇递归函数" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        Java核心技术再理解理解：Java中类的加载原理
+        又遇递归函数
         </h1>
     
 
             </header>
         
         <div class="article-subtitle">
-            <a href="/2016/05/19/Java核心技术再理解理解：Java中类的加载原理/" class="article-date">
-    <time datetime="2016-05-19T06:06:09.000Z" itemprop="datePublished">2016-05-19</time>
+            <a href="/2016/05/19/又遇递归函数/" class="article-date">
+    <time datetime="2016-05-19T07:41:13.000Z" itemprop="datePublished">2016-05-19</time>
 </a>
             
-    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
         </div>
         <div class="article-entry" itemprop="articleBody">
-            <p><img src="/images/Java核心技术再理解理解：Java中类的加载原理.jpg" alt=""><br>虽然每天都用Java，现在尝试做一些项目也是用的Java，但是总感觉对这门语言学习的不够深入，对Java的认识也只是停留在<br>别人博客中所说的，没有自己独特的理解。所以最近又把<em>《Java核心技术》</em>又重新的读了一遍。感觉对Java的认识还是比较欠缺。感觉学会一门语言并不是说会用就可以了，真正的理解这门语言，编程能力才会有质的提升。</p>
+            <p><img src="/images/又遇递归函数.jpg" alt=""><br>之前再写<a href="/2016/05/19/Java核心技术再理解理解：Java中类的加载原理">【算法】算法初步：聊一聊常见排序的算法</a>的时候简单的总结了一下递归的用法。这里再详细的归纳一下递归这种编程技术。</p>
+<p>##关于递归<br>递归通俗一点的解释就是函数的自调用。举个例子来说，我们计算阶乘<em>n! = 1\</em>2*3*4*….*n-1*n<em>，用函数</em>fn(n)<em>表示。通过一些数学处理可以归纳出通项公式</em>fn(n) = fn(n-1)*n*。所以，只有当n = 1的时候才需要特殊处理。<br>于是，用递归方法写的fn(n)就是：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#python</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n = <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> n*fn(n<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+<p>上面就是一个递归函数。递归函数的优点是定义简单，逻辑清晰。</p>
+<p>如果我们计算<em>fn(5)</em>，可以根据函数的定义来看到下面的计算过程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">===&gt;fn(5)</span><br><span class="line">===&gt;5*fn(4)</span><br><span class="line">===&gt;5*(4*fn(3))</span><br><span class="line">===&gt;5*(4*(3*(fn(2))))</span><br><span class="line">===&gt;5*(4*(3(2*(fn(1)))))</span><br><span class="line">===&gt;5*(4*(3(2*1)))</span><br><span class="line">===&gt;5*(4*(3*2))</span><br><span class="line">===&gt;5*(4*6)</span><br><span class="line">===&gt;5*24</span><br><span class="line">===&gt;120</span><br></pre></td></tr></table></figure>
+<p>我们可以看出递归的运算就是函数的逐层调用。我们知道函数调用是在通过栈（Stack）这种数据结构中进行的。所以在递归函数中，每当进入一个函数时，就会给原有的栈加一层栈帧。当函数返回时就会减少一层栈帧。由于栈不是无限的，所以如果递归调用的过多，就会导致栈的溢出。我们来试一试fn(1000)，会发现命令行会报一个错误：<em>RuntimeError: maximum recursion depth exceeded in comparison</em>，这个错误表示超过最大递归深度。</p>
 <hr>
-<p>下面我们就先从Java中最基本的<em>类</em>开始，探讨一下我们写的程序中的类是何时被初始化，又是何时被加载的。</p>
-<hr>
-<p>##类的加载</p>
-<p>首先我们要清楚<em>类的初始化</em>和<em>类的加载</em>是两个不同的概念。类的加载是由类的加载器完成的，比如<em>ClassLoader</em>就是一个用Java写的一个加载器。所谓的加载就是当程序员在命令行中执行<code>java HelloWord</code>命令时，JVM会将HelloWord.java加载到内存中，然后编译成HelloWord.class文件的过程。</p>
-<hr>
-<p>##类的初始化<br>类的初始化是发生在类加载完成后，这时类会先把<strong>静态属性</strong>初始化（Java中的初始化顺序是（静态变量、静态初始化块）&gt;（变量、初始化块）&gt;构造器）。类一般会在一下情况下发生初始化：</p>
-<ul>
-<li>通过new关键字创建实例</li>
-<li>该类的静态方法被调用</li>
-<li>使用类的非常量静态字段（static修饰的变量，语句块。被final修饰的静态字段为变异字段，不会触发类的初始化）</li>
-<li>通过Class.forName()反射创建实例</li>
-<li>初始化该类的某个子类</li>
-<li>当包含main()方法的类启动时</li>
-</ul>
-<hr>
-<p>##类的初始化步骤<br> 类的初始化步骤一般分为3步：</p>
-<ul>
-<li>如果一个类存在父类的话，并且其父类还没有被初始化，则优先初始化其父类</li>
-<li>如果该类存在一个初始化方法，则执行该方法</li>
-<li>静态域的初始化在非静态域之前（静态域的初始化在类的额静态初始化期间，非静态域的初始化在该类的实例穿件期间）</li>
-</ul>
-<hr>
-<p>##代码<br> 好的，下面我们通过一段简单的代码来体会一下Java中类的初始化过程。</p>
-<p> 定义父类：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.joea.classinit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SuperClass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> b;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> c = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		b = <span class="number">2</span>;</span><br><span class="line">		c = <span class="number">3</span>;</span><br><span class="line">		System.out.println(<span class="string">"SuperClass:static block has been initialized!"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"SuperClass:a="</span> + a + <span class="string">";b="</span> + b + <span class="string">";c="</span> + c);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>定义子类：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.joea.classinit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="keyword">extends</span> <span class="title">SuperClass</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> y=<span class="number">4</span>;</span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		y=<span class="number">5</span>;</span><br><span class="line">		System.out.println(<span class="string">"SubClass:static block has been initialized! "</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">super</span>.print();</span><br><span class="line">		System.out.println(<span class="string">"SubClass:a="</span> + a + <span class="string">";b="</span> + b );</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试类：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.joea.classinit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> temp;</span><br><span class="line">	<span class="keyword">static</span>&#123;</span><br><span class="line">		temp=<span class="number">10</span>;</span><br><span class="line">		System.out.println(<span class="string">"Test:static block has been initialized!"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		<span class="keyword">new</span> SubClass().print();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们来看一下输出的结果：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Test:<span class="keyword">static</span> block has been initialized!</span><br><span class="line">SuperClass:<span class="keyword">static</span> block has been initialized!</span><br><span class="line">SubClass:<span class="keyword">static</span> block has been initialized! </span><br><span class="line">SuperClass:a=<span class="number">0</span>;b=<span class="number">2</span>;c=<span class="number">3</span></span><br><span class="line">SubClass:a=<span class="number">0</span>;b=<span class="number">2</span></span><br></pre></td></tr></table></figure>
-<p>从上面的输出结果我们可以看出，还有main函数的类优先初始化；超类的初始化优先于子类；静态域的初始化优先于非静态域；<br>以上。</p>
+<p>##尾递归<br>解决递归调用栈溢出的方法是通过<em>尾递归</em>优化。尾递归是指，在函数返回的时候调用自身，并且return语句不能包含表达式。这样，编译器或者解释器就可以把尾递归做优化，是递归本身无论调用多少次都只占用一个栈帧，从而出现栈溢出的情况。</p>
+<p>上面的<em>fn(n)</em>函数由于<em>return n \</em> fn(n - 1)*引入了乘法表达式，所以就不是尾递归。把普通递归函数改成尾递归函数最主要一步的运算表达式传入到递归函数中去：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#python</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> fn_iter(n, <span class="number">1</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn_iter</span><span class="params">(n, m)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> m</span><br><span class="line">    <span class="keyword">return</span> fn_iter(n - <span class="number">1</span>, n * m)</span><br></pre></td></tr></table></figure>
+<p>可以看出，<em>return fn_iter(n - 1, n </em> m)<em>仅仅返回递归函数本身，而</em>n - 1<em>和</em>n <em> m</em>会在函数调用前就会被计算，不会影响函数的调用。<br>此时fn(5)对应的fn_iter调用如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">===&gt;fn_iter(5,1)</span><br><span class="line">===&gt;fn_iter(4,5)</span><br><span class="line">===&gt;fn_iter(3,20)</span><br><span class="line">===&gt;fn_iter(2,60)</span><br><span class="line">===&gt;fn_iter(1,120)</span><br><span class="line">===&gt;120</span><br></pre></td></tr></table></figure>
+<p>但是此时我们如果运算fn(1000)，依然会报出和之前一样的错误。这是因为尾递归调用时，编译器或者解释器如果做了优化，栈就不会增长。但是遗憾的是，大多数的编程语言是没有针对尾递归做优化的，Python和Java解释器也没有做优化，所以即便我们把fn(n)函数改成尾递归函数，依旧会导致栈的溢出。</p>
+<p>##递归能解决的一些问题（汉诺塔问题）<br>问题描述：<br>有三根相邻的柱子，标号为A,B,C，A柱子上从下到上按金字塔状叠放着n个不同大小的圆盘，要把所有盘子一个一个移动到柱子C上，并且每次移动同一根柱子上都不能出现大盘子在小盘子上方，请问至少需要多少次移动。<br>问题分析：<br>当只有一个盘子的时候，只需要从将A塔上的一个盘子移到C塔上。<br>            当A塔上有两个盘子是，先将A塔上的1号盘子（编号从上到下）移动到B塔上，再将A塔上的2号盘子移动的C塔上，最后将B塔上的小盘子移动到C塔上。<br>            当A塔上有3个盘子时，先将A塔上编号1至2的盘子（共2个）移动到B塔上（需借助C塔），然后将A塔上的3号最大的盘子移动到C塔，最后将B塔上的两个盘子借助A塔移动到C塔上。<br>           当A塔上有n个盘子是，先将A塔上编号1至n-1的盘子（共n-1个）移动到B塔上（借助C塔），然后将A塔上最大的n号盘子移动到C塔上，最后将B塔上的n-1个盘子借助A塔移动到C塔上。<br>          综上所述，除了只有一个盘子时不需要借助其他塔外，其余情况均一样。所以问题可以简化成三步：1、通过C把A上的n-1个盘子移动到B上。2、把第n个盘子移动到C上。3、通过A把B上的n-1个盘子移动到C上。所以汉诺塔问题对应的Python代码是:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#python</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hanoi</span><span class="params">(n, origin, assist, destination)</span>:</span></span><br><span class="line">       <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">           move(origin, destination)</span><br><span class="line">       <span class="keyword">else</span>:</span><br><span class="line">           hanoi(n<span class="number">-1</span>, origin, destination, assist) <span class="comment">#将n-1个盘子移到辅助柱子上</span></span><br><span class="line">           move(origin,destination)</span><br><span class="line">           hanoi(n<span class="number">-1</span>, assist, origin, destination) <span class="comment">#将n-1个盘子移动到目标柱子上</span></span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">move</span><span class="params">(origin, destination)</span>:</span></span><br><span class="line">       print(origin, <span class="string">'---&gt;'</span>, destination)</span><br><span class="line">   hanoi(<span class="number">3</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>可以看出一个看似很麻烦的问题通过递归很简单就解决了。</p>
 
         </div>
         <footer class="article-footer">
@@ -248,7 +227,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <section id="comments">
     
         
-    <div class="ds-thread" data-thread-key="2016/05/19/Java核心技术再理解理解：Java中类的加载原理/" data-title="Java核心技术再理解理解：Java中类的加载原理" data-url="http://yoursite.com/2016/05/19/Java核心技术再理解理解：Java中类的加载原理/"></div>
+    <div class="ds-thread" data-thread-key="2016/05/19/又遇递归函数/" data-title="又遇递归函数" data-url="http://yoursite.com/2016/05/19/又遇递归函数/"></div>
     <style>
         #ds-thread #ds-reset .ds-textarea-wrapper {
             background: none;
@@ -320,16 +299,12 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
         
 <nav id="article-nav">
     
-        <a href="/2016/05/19/聊一聊常见排序的算法/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">下一篇</strong>
-        <p class="article-nav-title">
-        
-            聊一聊常见排序的算法
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
+        <a href="/2016/05/19/聊一聊常见排序的算法/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">聊一聊常见排序的算法</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
     
 </nav>
 
