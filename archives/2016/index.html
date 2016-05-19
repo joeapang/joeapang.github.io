@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Archive: 2016 | IMan</title>
+    <title>Arxiu: 2016 | IMan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="description">
@@ -62,15 +62,21 @@
                         <ul id="main-nav">
                             
                                 <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/"> 首页</a>
+                                    <a class="main-nav-list-link" href="/"> 主页</a>
                                 </li>
                             
                                 <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/archives"> 博客</a>
+                                    <a class="main-nav-list-link" href="/archives"> 归档</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/博客/">博客</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/博客"> 博客</a>
                                 </li>
                             
                                 <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/"> 一生所爱</a>
+                                    <a class="main-nav-list-link" href="/categories/一生所爱"> 一生所爱</a>
                                 </li>
                             
                                 <li class="main-nav-list-item" >
@@ -82,14 +88,14 @@
                             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Cercar" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -101,11 +107,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -130,7 +136,7 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-archive"></i>Archive: 2016
+    <i class="icon fa fa-archive"></i>Arxiu: 2016
     </h1>
 </div>
                         <div class="main-body-content">
@@ -153,7 +159,7 @@
         <article class="article article-summary">
     <div class="article-summary-inner">
         
-        <a href="/2016/05/16/hello-world/" class="thumbnail">
+        <a href="/2016/05/19/Java核心技术再理解理解：Java中类的加载原理/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -163,7 +169,7 @@
 <span class="comment-counter">
     <i class="fa fa-comments-o"></i>
     
-        <span class="disqus-comment-count" data-disqus-url="http://yoursite.com/2016/05/16/hello-world/">0</span>
+        <span class="disqus-comment-count" data-disqus-url="http://yoursite.com/2016/05/19/Java核心技术再理解理解：Java中类的加载原理/">0</span>
     
 </span>
 
@@ -172,20 +178,21 @@
         
         <div class="article-meta">
             <p class="category">
-            
+            <a class="article-category-link" href="/categories/博客/">博客</a>
             </p>
-            <p class="date"><time datetime="2016-05-16T09:12:53.158Z" itemprop="datePublished">2016-05-16</time></p>
+            <p class="date"><time datetime="2016-05-19T06:06:09.000Z" itemprop="datePublished">2016-05-19</time></p>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2016/05/16/hello-world/">Hello World</a>
+        <a href="/2016/05/19/Java核心技术再理解理解：Java中类的加载原理/">Java核心技术再理解理解：Java中类的加载原理</a>
         </h1>
     
 
         <p class="article-excerpt">
-            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick
+            虽然每天都用Java，现在尝试做一些项目也是用的Java，但是总感觉对这门语言学习的不够深入，对Java的认识也只是停留在别人博客中所说的，没有自己独特的理解。所以最近又把《Java核心技术》又重新的读了一遍。感觉对Java的认识还是比较欠缺。感觉学会一门语言并不是说会用就可以了，真正的理解这门语言，编程能力才会有质的提升。
+
+下面我们就先从Java中最基本的类开始，探讨一下我们写的程序中的类是何
         </p>
     </div>
 </article>
@@ -203,7 +210,7 @@ Quick
                     <aside id="sidebar">
     <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
     <div class="sidebar-top">
-        <p>follow:</p>
+        <p>关注我 :</p>
         <ul class="social-links">
             
                 
@@ -230,14 +237,14 @@ Quick
             
                 
     <div class="widget-wrap">
-        <h3 class="widget-title">recents</h3>
+        <h3 class="widget-title">近期动态</h3>
         <div class="widget">
             <ul id="recent-post" class="">
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2016/05/16/hello-world/" class="thumbnail">
+                            <a href="/2016/05/19/Java核心技术再理解理解：Java中类的加载原理/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -247,9 +254,9 @@ Quick
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/05/16/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2016-05-16T09:12:53.158Z" itemprop="datePublished">2016-05-16</time></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/博客/">博客</a></p>
+                            <p class="item-title"><a href="/2016/05/19/Java核心技术再理解理解：Java中类的加载原理/" class="title">Java核心技术再理解理解：Java中类的加载原理</a></p>
+                            <p class="item-date"><time datetime="2016-05-19T06:06:09.000Z" itemprop="datePublished">2016-05-19</time></p>
                         </div>
                     </li>
                 
@@ -259,27 +266,48 @@ Quick
 
             
                 
-
-            
-                
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">archives</h3>
+        <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/博客/">博客</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
 
             
                 
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
 
-            
-                
 
             
                 
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">links</h3>
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Java/" style="font-size: 10px;">Java</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
         <div class="widget">
             <ul>
                 
