@@ -9,19 +9,19 @@
         <meta name="keywords" content="算法,Python" />
     
     <meta name="description" content="之前再写【算法】算法初步：聊一聊常见排序的算法的时候简单的总结了一下递归的用法。这里再详细的归纳一下递归这种编程技术。
-##关于递归递归通俗一点的解释就是函数的自调用。举个例子来说，我们计算阶乘n! = 1\2*3*4*….*n-1*n，用函数fn(n)表示。通过一些数学处理可以归纳出通项公式fn(n) = fn(n-1)*n*。所以，只有当n = 1的时候才需要特殊处理。于是，用递归方法写的fn">
+关于递归递归通俗一点的解释就是函数的自调用。举个例子来说，我们计算阶乘n! = 1\2*3*4*….*n-1*n，用函数fn(n)表示。通过一些数学处理可以归纳出通项公式fn(n) = fn(n-1)*n*。所以，只有当n = 1的时候才需要特殊处理。于是，用递归方法写的fn(n">
 <meta property="og:type" content="article">
 <meta property="og:title" content="又遇递归函数">
 <meta property="og:url" content="http://yoursite.com/2016/05/19/又遇递归函数/index.html">
 <meta property="og:site_name" content="IMan">
 <meta property="og:description" content="之前再写【算法】算法初步：聊一聊常见排序的算法的时候简单的总结了一下递归的用法。这里再详细的归纳一下递归这种编程技术。
-##关于递归递归通俗一点的解释就是函数的自调用。举个例子来说，我们计算阶乘n! = 1\2*3*4*….*n-1*n，用函数fn(n)表示。通过一些数学处理可以归纳出通项公式fn(n) = fn(n-1)*n*。所以，只有当n = 1的时候才需要特殊处理。于是，用递归方法写的fn">
+关于递归递归通俗一点的解释就是函数的自调用。举个例子来说，我们计算阶乘n! = 1\2*3*4*….*n-1*n，用函数fn(n)表示。通过一些数学处理可以归纳出通项公式fn(n) = fn(n-1)*n*。所以，只有当n = 1的时候才需要特殊处理。于是，用递归方法写的fn(n">
 <meta property="og:image" content="http://yoursite.com/images/又遇递归函数.jpg">
-<meta property="og:updated_time" content="2016-05-19T07:53:24.242Z">
+<meta property="og:updated_time" content="2016-05-20T05:20:30.182Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="又遇递归函数">
 <meta name="twitter:description" content="之前再写【算法】算法初步：聊一聊常见排序的算法的时候简单的总结了一下递归的用法。这里再详细的归纳一下递归这种编程技术。
-##关于递归递归通俗一点的解释就是函数的自调用。举个例子来说，我们计算阶乘n! = 1\2*3*4*….*n-1*n，用函数fn(n)表示。通过一些数学处理可以归纳出通项公式fn(n) = fn(n-1)*n*。所以，只有当n = 1的时候才需要特殊处理。于是，用递归方法写的fn">
+关于递归递归通俗一点的解释就是函数的自调用。举个例子来说，我们计算阶乘n! = 1\2*3*4*….*n-1*n，用函数fn(n)表示。通过一些数学处理可以归纳出通项公式fn(n) = fn(n-1)*n*。所以，只有当n = 1的时候才需要特殊处理。于是，用递归方法写的fn(n">
 <meta name="twitter:image" content="http://yoursite.com/images/又遇递归函数.jpg">
     
 
@@ -163,20 +163,20 @@
         </div>
         <div class="article-entry" itemprop="articleBody">
             <p><img src="/images/又遇递归函数.jpg" alt=""><br>之前再写<a href="/2016/05/19/Java核心技术再理解理解：Java中类的加载原理">【算法】算法初步：聊一聊常见排序的算法</a>的时候简单的总结了一下递归的用法。这里再详细的归纳一下递归这种编程技术。</p>
-<p>##关于递归<br>递归通俗一点的解释就是函数的自调用。举个例子来说，我们计算阶乘<em>n! = 1\</em>2*3*4*….*n-1*n<em>，用函数</em>fn(n)<em>表示。通过一些数学处理可以归纳出通项公式</em>fn(n) = fn(n-1)*n*。所以，只有当n = 1的时候才需要特殊处理。<br>于是，用递归方法写的fn(n)就是：</p>
+<h2 id="关于递归"><a href="#关于递归" class="headerlink" title="关于递归"></a>关于递归</h2><p>递归通俗一点的解释就是函数的自调用。举个例子来说，我们计算阶乘<em>n! = 1\</em>2*3*4*….*n-1*n<em>，用函数</em>fn(n)<em>表示。通过一些数学处理可以归纳出通项公式</em>fn(n) = fn(n-1)*n*。所以，只有当n = 1的时候才需要特殊处理。<br>于是，用递归方法写的fn(n)就是：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#python</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n = <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> n*fn(n<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
 <p>上面就是一个递归函数。递归函数的优点是定义简单，逻辑清晰。</p>
 <p>如果我们计算<em>fn(5)</em>，可以根据函数的定义来看到下面的计算过程：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">===&gt;fn(5)</span><br><span class="line">===&gt;5*fn(4)</span><br><span class="line">===&gt;5*(4*fn(3))</span><br><span class="line">===&gt;5*(4*(3*(fn(2))))</span><br><span class="line">===&gt;5*(4*(3(2*(fn(1)))))</span><br><span class="line">===&gt;5*(4*(3(2*1)))</span><br><span class="line">===&gt;5*(4*(3*2))</span><br><span class="line">===&gt;5*(4*6)</span><br><span class="line">===&gt;5*24</span><br><span class="line">===&gt;120</span><br></pre></td></tr></table></figure>
 <p>我们可以看出递归的运算就是函数的逐层调用。我们知道函数调用是在通过栈（Stack）这种数据结构中进行的。所以在递归函数中，每当进入一个函数时，就会给原有的栈加一层栈帧。当函数返回时就会减少一层栈帧。由于栈不是无限的，所以如果递归调用的过多，就会导致栈的溢出。我们来试一试fn(1000)，会发现命令行会报一个错误：<em>RuntimeError: maximum recursion depth exceeded in comparison</em>，这个错误表示超过最大递归深度。</p>
 <hr>
-<p>##尾递归<br>解决递归调用栈溢出的方法是通过<em>尾递归</em>优化。尾递归是指，在函数返回的时候调用自身，并且return语句不能包含表达式。这样，编译器或者解释器就可以把尾递归做优化，是递归本身无论调用多少次都只占用一个栈帧，从而出现栈溢出的情况。</p>
+<h2 id="尾递归"><a href="#尾递归" class="headerlink" title="尾递归"></a>尾递归</h2><p>解决递归调用栈溢出的方法是通过<em>尾递归</em>优化。尾递归是指，在函数返回的时候调用自身，并且return语句不能包含表达式。这样，编译器或者解释器就可以把尾递归做优化，是递归本身无论调用多少次都只占用一个栈帧，从而出现栈溢出的情况。</p>
 <p>上面的<em>fn(n)</em>函数由于<em>return n \</em> fn(n - 1)*引入了乘法表达式，所以就不是尾递归。把普通递归函数改成尾递归函数最主要一步的运算表达式传入到递归函数中去：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#python</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> fn_iter(n, <span class="number">1</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn_iter</span><span class="params">(n, m)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> m</span><br><span class="line">    <span class="keyword">return</span> fn_iter(n - <span class="number">1</span>, n * m)</span><br></pre></td></tr></table></figure>
 <p>可以看出，<em>return fn_iter(n - 1, n </em> m)<em>仅仅返回递归函数本身，而</em>n - 1<em>和</em>n <em> m</em>会在函数调用前就会被计算，不会影响函数的调用。<br>此时fn(5)对应的fn_iter调用如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">===&gt;fn_iter(5,1)</span><br><span class="line">===&gt;fn_iter(4,5)</span><br><span class="line">===&gt;fn_iter(3,20)</span><br><span class="line">===&gt;fn_iter(2,60)</span><br><span class="line">===&gt;fn_iter(1,120)</span><br><span class="line">===&gt;120</span><br></pre></td></tr></table></figure>
 <p>但是此时我们如果运算fn(1000)，依然会报出和之前一样的错误。这是因为尾递归调用时，编译器或者解释器如果做了优化，栈就不会增长。但是遗憾的是，大多数的编程语言是没有针对尾递归做优化的，Python和Java解释器也没有做优化，所以即便我们把fn(n)函数改成尾递归函数，依旧会导致栈的溢出。</p>
-<p>##递归能解决的一些问题（汉诺塔问题）<br>问题描述：<br>有三根相邻的柱子，标号为A,B,C，A柱子上从下到上按金字塔状叠放着n个不同大小的圆盘，要把所有盘子一个一个移动到柱子C上，并且每次移动同一根柱子上都不能出现大盘子在小盘子上方，请问至少需要多少次移动。<br>问题分析：<br>当只有一个盘子的时候，只需要从将A塔上的一个盘子移到C塔上。<br>            当A塔上有两个盘子是，先将A塔上的1号盘子（编号从上到下）移动到B塔上，再将A塔上的2号盘子移动的C塔上，最后将B塔上的小盘子移动到C塔上。<br>            当A塔上有3个盘子时，先将A塔上编号1至2的盘子（共2个）移动到B塔上（需借助C塔），然后将A塔上的3号最大的盘子移动到C塔，最后将B塔上的两个盘子借助A塔移动到C塔上。<br>           当A塔上有n个盘子是，先将A塔上编号1至n-1的盘子（共n-1个）移动到B塔上（借助C塔），然后将A塔上最大的n号盘子移动到C塔上，最后将B塔上的n-1个盘子借助A塔移动到C塔上。<br>          综上所述，除了只有一个盘子时不需要借助其他塔外，其余情况均一样。所以问题可以简化成三步：1、通过C把A上的n-1个盘子移动到B上。2、把第n个盘子移动到C上。3、通过A把B上的n-1个盘子移动到C上。所以汉诺塔问题对应的Python代码是:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#python</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hanoi</span><span class="params">(n, origin, assist, destination)</span>:</span></span><br><span class="line">       <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">           move(origin, destination)</span><br><span class="line">       <span class="keyword">else</span>:</span><br><span class="line">           hanoi(n<span class="number">-1</span>, origin, destination, assist) <span class="comment">#将n-1个盘子移到辅助柱子上</span></span><br><span class="line">           move(origin,destination)</span><br><span class="line">           hanoi(n<span class="number">-1</span>, assist, origin, destination) <span class="comment">#将n-1个盘子移动到目标柱子上</span></span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">move</span><span class="params">(origin, destination)</span>:</span></span><br><span class="line">       print(origin, <span class="string">'---&gt;'</span>, destination)</span><br><span class="line">   hanoi(<span class="number">3</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="递归能解决的一些问题（汉诺塔问题）"><a href="#递归能解决的一些问题（汉诺塔问题）" class="headerlink" title="递归能解决的一些问题（汉诺塔问题）"></a>递归能解决的一些问题（汉诺塔问题）</h2><p>问题描述：<br>有三根相邻的柱子，标号为A,B,C，A柱子上从下到上按金字塔状叠放着n个不同大小的圆盘，要把所有盘子一个一个移动到柱子C上，并且每次移动同一根柱子上都不能出现大盘子在小盘子上方，请问至少需要多少次移动。<br>问题分析：<br>当只有一个盘子的时候，只需要从将A塔上的一个盘子移到C塔上。<br>            当A塔上有两个盘子是，先将A塔上的1号盘子（编号从上到下）移动到B塔上，再将A塔上的2号盘子移动的C塔上，最后将B塔上的小盘子移动到C塔上。<br>            当A塔上有3个盘子时，先将A塔上编号1至2的盘子（共2个）移动到B塔上（需借助C塔），然后将A塔上的3号最大的盘子移动到C塔，最后将B塔上的两个盘子借助A塔移动到C塔上。<br>           当A塔上有n个盘子是，先将A塔上编号1至n-1的盘子（共n-1个）移动到B塔上（借助C塔），然后将A塔上最大的n号盘子移动到C塔上，最后将B塔上的n-1个盘子借助A塔移动到C塔上。<br>          综上所述，除了只有一个盘子时不需要借助其他塔外，其余情况均一样。所以问题可以简化成三步：1、通过C把A上的n-1个盘子移动到B上。2、把第n个盘子移动到C上。3、通过A把B上的n-1个盘子移动到C上。所以汉诺塔问题对应的Python代码是:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#python</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hanoi</span><span class="params">(n, origin, assist, destination)</span>:</span></span><br><span class="line">       <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">           move(origin, destination)</span><br><span class="line">       <span class="keyword">else</span>:</span><br><span class="line">           hanoi(n<span class="number">-1</span>, origin, destination, assist) <span class="comment">#将n-1个盘子移到辅助柱子上</span></span><br><span class="line">           move(origin,destination)</span><br><span class="line">           hanoi(n<span class="number">-1</span>, assist, origin, destination) <span class="comment">#将n-1个盘子移动到目标柱子上</span></span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">move</span><span class="params">(origin, destination)</span>:</span></span><br><span class="line">       print(origin, <span class="string">'---&gt;'</span>, destination)</span><br><span class="line">   hanoi(<span class="number">3</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>)</span><br></pre></td></tr></table></figure></p>
 <p>可以看出一个看似很麻烦的问题通过递归很简单就解决了。</p>
 
         </div>
@@ -331,6 +331,25 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2016/05/20/什么是Linux/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/05/20/什么是Linux/" class="title">什么是Linux</a></p>
+                            <p class="item-date"><time datetime="2016-05-20T03:49:00.000Z" itemprop="datePublished">2016-05-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2016/05/19/小幸运/" class="thumbnail">
     
     
@@ -404,25 +423,6 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/05/19/Love-To-Be-Loved-By-You/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/LoveToBeLovedByYou.jpg)" alt="Love To Be Loved By You" class="thumbnail-image"></span>
-    
-    
-</a>
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/一生所爱/">一生所爱</a></p>
-                            <p class="item-title"><a href="/2016/05/19/Love-To-Be-Loved-By-You/" class="title">Love To Be Loved By You</a></p>
-                            <p class="item-date"><time datetime="2016-05-19T11:24:14.000Z" itemprop="datePublished">2016-05-19</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -442,7 +442,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">11</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">12</span></li></ul>
         </div>
     </div>
 

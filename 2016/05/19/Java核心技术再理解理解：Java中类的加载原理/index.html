@@ -19,7 +19,7 @@
 
 下面我们就先从Java中最基本的类开始，探讨一下我们写的程序中的类是何">
 <meta property="og:image" content="http://yoursite.com/images/Java核心技术再理解理解：Java中类的加载原理.jpg">
-<meta property="og:updated_time" content="2016-05-19T07:53:31.286Z">
+<meta property="og:updated_time" content="2016-05-20T05:16:20.844Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java核心技术再理解理解：Java中类的加载原理">
 <meta name="twitter:description" content="虽然每天都用Java，现在尝试做一些项目也是用的Java，但是总感觉对这门语言学习的不够深入，对Java的认识也只是停留在别人博客中所说的，没有自己独特的理解。所以最近又把《Java核心技术》又重新的读了一遍。感觉对Java的认识还是比较欠缺。感觉学会一门语言并不是说会用就可以了，真正的理解这门语言，编程能力才会有质的提升。
@@ -169,10 +169,9 @@
 <hr>
 <p>下面我们就先从Java中最基本的<em>类</em>开始，探讨一下我们写的程序中的类是何时被初始化，又是何时被加载的。</p>
 <hr>
-<p>##类的加载</p>
-<p>首先我们要清楚<em>类的初始化</em>和<em>类的加载</em>是两个不同的概念。类的加载是由类的加载器完成的，比如<em>ClassLoader</em>就是一个用Java写的一个加载器。所谓的加载就是当程序员在命令行中执行<code>java HelloWord</code>命令时，JVM会将HelloWord.java加载到内存中，然后编译成HelloWord.class文件的过程。</p>
+<h2 id="类的加载"><a href="#类的加载" class="headerlink" title="类的加载"></a>类的加载</h2><p>首先我们要清楚<em>类的初始化</em>和<em>类的加载</em>是两个不同的概念。类的加载是由类的加载器完成的，比如<em>ClassLoader</em>就是一个用Java写的一个加载器。所谓的加载就是当程序员在命令行中执行<code>java HelloWord</code>命令时，JVM会将HelloWord.java加载到内存中，然后编译成HelloWord.class文件的过程。</p>
 <hr>
-<p>##类的初始化<br>类的初始化是发生在类加载完成后，这时类会先把<strong>静态属性</strong>初始化（Java中的初始化顺序是（静态变量、静态初始化块）&gt;（变量、初始化块）&gt;构造器）。类一般会在一下情况下发生初始化：</p>
+<h2 id="类的初始化"><a href="#类的初始化" class="headerlink" title="类的初始化"></a>类的初始化</h2><p>类的初始化是发生在类加载完成后，这时类会先把<strong>静态属性</strong>初始化（Java中的初始化顺序是（静态变量、静态初始化块）&gt;（变量、初始化块）&gt;构造器）。类一般会在一下情况下发生初始化：</p>
 <ul>
 <li>通过new关键字创建实例</li>
 <li>该类的静态方法被调用</li>
@@ -182,14 +181,14 @@
 <li>当包含main()方法的类启动时</li>
 </ul>
 <hr>
-<p>##类的初始化步骤<br> 类的初始化步骤一般分为3步：</p>
+<h2 id="类的初始化步骤"><a href="#类的初始化步骤" class="headerlink" title="类的初始化步骤"></a>类的初始化步骤</h2><p> 类的初始化步骤一般分为3步：</p>
 <ul>
 <li>如果一个类存在父类的话，并且其父类还没有被初始化，则优先初始化其父类</li>
 <li>如果该类存在一个初始化方法，则执行该方法</li>
 <li>静态域的初始化在非静态域之前（静态域的初始化在类的额静态初始化期间，非静态域的初始化在该类的实例穿件期间）</li>
 </ul>
 <hr>
-<p>##代码<br> 好的，下面我们通过一段简单的代码来体会一下Java中类的初始化过程。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p> 好的，下面我们通过一段简单的代码来体会一下Java中类的初始化过程。</p>
 <p> 定义父类：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.joea.classinit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SuperClass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> b;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> c = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		b = <span class="number">2</span>;</span><br><span class="line">		c = <span class="number">3</span>;</span><br><span class="line">		System.out.println(<span class="string">"SuperClass:static block has been initialized!"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"SuperClass:a="</span> + a + <span class="string">";b="</span> + b + <span class="string">";c="</span> + c);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>定义子类：</p>
@@ -346,6 +345,25 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2016/05/20/什么是Linux/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/05/20/什么是Linux/" class="title">什么是Linux</a></p>
+                            <p class="item-date"><time datetime="2016-05-20T03:49:00.000Z" itemprop="datePublished">2016-05-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2016/05/19/小幸运/" class="thumbnail">
     
     
@@ -419,25 +437,6 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/05/19/Love-To-Be-Loved-By-You/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/LoveToBeLovedByYou.jpg)" alt="Love To Be Loved By You" class="thumbnail-image"></span>
-    
-    
-</a>
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/一生所爱/">一生所爱</a></p>
-                            <p class="item-title"><a href="/2016/05/19/Love-To-Be-Loved-By-You/" class="title">Love To Be Loved By You</a></p>
-                            <p class="item-date"><time datetime="2016-05-19T11:24:14.000Z" itemprop="datePublished">2016-05-19</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -457,7 +456,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">11</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">12</span></li></ul>
         </div>
     </div>
 
