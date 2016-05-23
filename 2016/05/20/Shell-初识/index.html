@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="IMan">
 <meta property="og:description" content="编译型语言和脚本语言无论大学毕业于计算机专业的程序员，还是半路出身的程序员，都应该是从编译型语言（如：C++,Java等）入门的。这类程序只要从源代码转换成目标代码，便能通过计算机来执行(Java 虽然并不是这样的，但也差不多是这种情况)。这种语言的好处就是高效，入门快。缺点也显而易见，运作于计算机底层，操作对象大多为字节，浮点数等等。很难直接操作于如系统目录这样的对象。而脚本语言不一样，脚本语言">
 <meta property="og:image" content="http://yoursite.com/images/程序相关示意图.jpg">
-<meta property="og:updated_time" content="2016-05-23T09:05:18.807Z">
+<meta property="og:updated_time" content="2016-05-23T09:13:17.546Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shell 初识：shell中的变量">
 <meta name="twitter:description" content="编译型语言和脚本语言无论大学毕业于计算机专业的程序员，还是半路出身的程序员，都应该是从编译型语言（如：C++,Java等）入门的。这类程序只要从源代码转换成目标代码，便能通过计算机来执行(Java 虽然并不是这样的，但也差不多是这种情况)。这种语言的好处就是高效，入门快。缺点也显而易见，运作于计算机底层，操作对象大多为字节，浮点数等等。很难直接操作于如系统目录这样的对象。而脚本语言不一样，脚本语言">
@@ -85,7 +85,7 @@
                             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Cercar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -239,7 +239,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[root@bogon bin]# export 变量名称</span><br></pre></td></tr></table></figure>
 <p>export用在配置自己的文件呼叫环境时十分有用，值得注意的是，这种环境变量的配置方法是临时的，当你退出bash之后，配置将失效。如果仅下达 export 而没有接变量时，那么此时将会把所有的环境变量列出来，如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#只列出一部分</span><br><span class="line">declare -x MAIL=&quot;/var/spool/mail/root&quot;</span><br><span class="line">declare -x OLDPWD=&quot;/root&quot;</span><br><span class="line">declare -x PATH=&quot;/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin&quot;</span><br><span class="line">declare -x PWD=&quot;/bin&quot;</span><br><span class="line">declare -x SELINUX_LEVEL_REQUESTED=&quot;&quot;</span><br><span class="line">declare -x SELINUX_ROLE_REQUESTED=&quot;&quot;</span><br><span class="line">declare -x SELINUX_USE_CURRENT_RANGE=&quot;&quot;</span><br><span class="line">declare -x SHELL=&quot;/bin/bash&quot;</span><br><span class="line">declare -x SHLVL=&quot;1&quot;</span><br><span class="line">declare -x SSH_ASKPASS=&quot;/usr/libexec/openssh/gnome-ssh-askpass&quot;</span><br><span class="line">declare -x SSH_CLIENT=&quot;192.168.137.1 1626 22&quot;</span><br><span class="line">declare -x SSH_CONNECTION=&quot;192.168.137.1 1626 192.168.137.2 22&quot;</span><br><span class="line">declare -x SSH_TTY=&quot;/dev/pts/0&quot;</span><br><span class="line">declare -x TERM=&quot;xterm&quot;</span><br><span class="line">declare -x USER=&quot;root&quot;</span><br></pre></td></tr></table></figure>
-<p>其中的declare和export执行的相反的任务，是将环境变量转换成自定义变量。</p>
 
         </div>
         <footer class="article-footer">
