@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="IMan">
 <meta property="og:description" content="编译型语言和脚本语言无论大学毕业于计算机专业的程序员，还是半路出身的程序员，都应该是从编译型语言（如：C++,Java等）入门的。这类程序只要从源代码转换成目标代码，便能通过计算机来执行(Java 虽然并不是这样的，但也差不多是这种情况)。这种语言的好处就是高效，入门快。缺点也显而易见，运作于计算机底层，操作对象大多为字节，浮点数等等。很难直接操作于如系统目录这样的对象。而脚本语言不一样，脚本语言">
 <meta property="og:image" content="http://yoursite.com/images/程序相关示意图.jpg">
-<meta property="og:updated_time" content="2016-05-24T02:51:09.900Z">
+<meta property="og:updated_time" content="2016-05-24T03:12:36.912Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell 初识：shell中的变量">
 <meta name="twitter:description" content="编译型语言和脚本语言无论大学毕业于计算机专业的程序员，还是半路出身的程序员，都应该是从编译型语言（如：C++,Java等）入门的。这类程序只要从源代码转换成目标代码，便能通过计算机来执行(Java 虽然并不是这样的，但也差不多是这种情况)。这种语言的好处就是高效，入门快。缺点也显而易见，运作于计算机底层，操作对象大多为字节，浮点数等等。很难直接操作于如系统目录这样的对象。而脚本语言不一样，脚本语言">
@@ -85,7 +85,7 @@
                             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Cercar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -161,15 +161,11 @@
         <div class="article-entry" itemprop="articleBody">
             <h2 id="编译型语言和脚本语言"><a href="#编译型语言和脚本语言" class="headerlink" title="编译型语言和脚本语言"></a>编译型语言和脚本语言</h2><p>无论大学毕业于计算机专业的程序员，还是半路出身的程序员，都应该是从编译型语言（如：C++,Java等）入门的。这类程序只要从源代码转换成目标代码，便能通过计算机来执行(Java 虽然并不是这样的，但也差不多是这种情况)。这种语言的好处就是高效，入门快。缺点也显而易见，运作于计算机底层，操作对象大多为字节，浮点数等等。很难直接操作于如系统目录这样的对象。<br>而脚本语言不一样，脚本语言也称之为解释型语言。这种语言能够轻易的操作文件与目录之类的对象。缺点就是效率不够高。通常情况下，脚本语言可以简洁的表达一个复杂的操作。脚本语言有很多，常见的Shell，awk，Python，Perl等等。</p>
 <hr>
-<p>##从Java到Shell</p>
-<p>这无疑是一个痛苦的过程，习惯了面向对象语言的表达方式，学习Shell的时候会有一种整个世界都崩塌了的感觉。和我们打交道的不再是一个个对象，而是各种指令还有操作运算符，这会使的用惯了IDE的开发者们无从下手。</p>
-<p>##什么Shell</p>
-<p>对于操作系统有些概念的都应该听说过Shell，只要是操作系统，都离不开Shell，其实Shell并不是一门语言，可以说是一种工具，在Linux中，Shell是一种用户与计算机核心（Kernel）交互的工具。用户输入的命令通过Shell传递给Kernel，然后再作用于硬件，保证操作系统准确无误的运行。Shell作为计算机与操作系统交互的桥梁，其实用处还是很多的，它可以帮助你查看操作系统的登录信息，管理操作系统文件等等。</p>
-<p>##Bash</p>
-<p>由于早年的 Unix 年代，发展者众，所以由于 shell 依据发展者的不同就有许多的版本，例如常听到的 Bourne SHell (sh) 、在 Sun 里头默认的 C SHell、 商业上常用的 K SHell、, 还有 TCSH 等等，每一种 Shell 都各有其特点。Linux默认使用的Bash (Bourne Again SHell)。你可以在/etc/shells(Centos 5.x)下查看你能用多少种Shell。不同的Shell功能都差不多，但是语法语义都会有一些差距。Linux默认的Bash，所以下面也都是基于Bash写的。</p>
+<h2 id="从Java到Shell"><a href="#从Java到Shell" class="headerlink" title="从Java到Shell"></a>从Java到Shell</h2><p>这无疑是一个痛苦的过程，习惯了面向对象语言的表达方式，学习Shell的时候会有一种整个世界都崩塌了的感觉。和我们打交道的不再是一个个对象，而是各种指令还有操作运算符，这会使的用惯了IDE的开发者们无从下手。</p>
+<h2 id="什么Shell"><a href="#什么Shell" class="headerlink" title="什么Shell"></a>什么Shell</h2><p>对于操作系统有些概念的都应该听说过Shell，只要是操作系统，都离不开Shell，其实Shell并不是一门语言，可以说是一种工具，在Linux中，Shell是一种用户与计算机核心（Kernel）交互的工具。用户输入的命令通过Shell传递给Kernel，然后再作用于硬件，保证操作系统准确无误的运行。Shell作为计算机与操作系统交互的桥梁，其实用处还是很多的，它可以帮助你查看操作系统的登录信息，管理操作系统文件等等。</p>
+<h2 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h2><p>由于早年的 Unix 年代，发展者众，所以由于 shell 依据发展者的不同就有许多的版本，例如常听到的 Bourne SHell (sh) 、在 Sun 里头默认的 C SHell、 商业上常用的 K SHell、, 还有 TCSH 等等，每一种 Shell 都各有其特点。Linux默认使用的Bash (Bourne Again SHell)。你可以在/etc/shells(Centos 5.x)下查看你能用多少种Shell。不同的Shell功能都差不多，但是语法语义都会有一些差距。Linux默认的Bash，所以下面也都是基于Bash写的。</p>
 <hr>
-<p>##Shell中的变量</p>
-<p>对于有数学基础的人来说，变量这个词并不陌生。在Bash中变量的配置有着很严格的准则：</p>
+<h2 id="Shell中的变量"><a href="#Shell中的变量" class="headerlink" title="Shell中的变量"></a>Shell中的变量</h2><p>对于有数学基础的人来说，变量这个词并不陌生。在Bash中变量的配置有着很严格的准则：</p>
 <ul>
 <li><p>变量与变量内容以等号连接，并且等号两边不能直接连接空格符号</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">name=Joea #正确</span><br><span class="line">name = Joea #错误</span><br></pre></td></tr></table></figure>
@@ -194,7 +190,7 @@
 <li>若该变量为扩增变量内容时，则可用 <em>$变量名称</em> 或 <em>${变量}</em> 累加内容，如下所示：<br>name=”$name”Pang<br>可能看了下面的例子，就知道在shell中如何配置变量了：</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[root@bogon bin]# 2name=Joea </span><br><span class="line">-bash: 2name=Joea: command not found  #显示错误，不能以数字开头</span><br><span class="line">[root@bogon bin]# name = Joea   </span><br><span class="line">-bash: name: command not found   #显示错误，因为等号两边有空格</span><br><span class="line">[root@bogon bin]# name=Joea #正确</span><br><span class="line"></span><br><span class="line">[root@bogon bin]# name=Joea&apos;s name</span><br><span class="line"></span><br><span class="line">\&gt;  # 单引号与双引号必须要成对，在上面的配置中仅有一个单引号，因此当你按下 enter 后，</span><br><span class="line">	# 你还可以继续输入变量内容。这与我们所需要的功能不同，失败啦！</span><br><span class="line">	# 记得，失败后要复原请按下 [ctrl]-c 结束！</span><br><span class="line">[root@bogon bin]# name=&quot;Joea&apos;s name&quot; #正确</span><br><span class="line">[root@bogon bin]# name=&apos;Joea&apos;s name&apos; #因为前面两个单引号已经成对，后面多了一个不成对的单引号</span><br><span class="line">[root@bogon bin]# name=Joea\&apos;s\ name #正确，用*\\*跳脱特殊字符，如空格，单引号</span><br></pre></td></tr></table></figure>
-<p>###shell中的环境变量<br>环境变量可以帮我们达到很多的功能，如运行文件的搜索路径，提示字符的显示等等。我们可以用env和export来查看系统的环境变量：</p>
+<h3 id="shell中的环境变量"><a href="#shell中的环境变量" class="headerlink" title="shell中的环境变量"></a>shell中的环境变量</h3><p>环境变量可以帮我们达到很多的功能，如运行文件的搜索路径，提示字符的显示等等。我们可以用env和export来查看系统的环境变量：</p>
 <ul>
 <li>用env查看环境变量与常用环境变量的说明：</li>
 </ul>
@@ -240,8 +236,7 @@
 <p>export用在配置自己的文件呼叫环境时十分有用，值得注意的是，这种环境变量的配置方法是临时的，当你退出bash之后，配置将失效。如果仅下达 export 而没有接变量时，那么此时将会把所有的环境变量列出来，如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#只列出一部分</span><br><span class="line">declare -x MAIL=&quot;/var/spool/mail/root&quot;</span><br><span class="line">declare -x OLDPWD=&quot;/root&quot;</span><br><span class="line">declare -x PATH=&quot;/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin&quot;</span><br><span class="line">declare -x PWD=&quot;/bin&quot;</span><br><span class="line">declare -x SELINUX_LEVEL_REQUESTED=&quot;&quot;</span><br><span class="line">declare -x SELINUX_ROLE_REQUESTED=&quot;&quot;</span><br><span class="line">declare -x SELINUX_USE_CURRENT_RANGE=&quot;&quot;</span><br><span class="line">declare -x SHELL=&quot;/bin/bash&quot;</span><br><span class="line">declare -x SHLVL=&quot;1&quot;</span><br><span class="line">declare -x SSH_ASKPASS=&quot;/usr/libexec/openssh/gnome-ssh-askpass&quot;</span><br><span class="line">declare -x SSH_CLIENT=&quot;192.168.137.1 1626 22&quot;</span><br><span class="line">declare -x SSH_CONNECTION=&quot;192.168.137.1 1626 192.168.137.2 22&quot;</span><br><span class="line">declare -x SSH_TTY=&quot;/dev/pts/0&quot;</span><br><span class="line">declare -x TERM=&quot;xterm&quot;</span><br><span class="line">declare -x USER=&quot;root&quot;</span><br></pre></td></tr></table></figure>
 <hr>
-<p>###declare，read和array</p>
-<ul>
+<h3 id="declare，read和array"><a href="#declare，read和array" class="headerlink" title="declare，read和array"></a>declare，read和array</h3><ul>
 <li>declare：声明变量的类型</li>
 </ul>
 <p>看到上面export的无参数输出，你可能会疑问，<em>declare -x</em>是干什么？事实上declare是用来声明变量类型的，如Java中的基本数据类型有int，float，double等等。shell也有自己的数据类型。如果declare后面不跟任何的参数，那么bash就会把所有的变量名称和内容都输出到屏幕，和set一样。和declare功能一样的还有typeset。先看下面：</p>
