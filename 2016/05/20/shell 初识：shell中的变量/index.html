@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="IMan">
 <meta property="og:description" content="编译型语言和脚本语言无论大学毕业于计算机专业的程序员，还是半路出身的程序员，都应该是从编译型语言（如：C++,Java等）入门的。这类程序只要从源代码转换成目标代码，便能通过计算机来执行(Java 虽然并不是这样的，但也差不多是这种情况)。这种语言的好处就是高效，入门快。缺点也显而易见，运作于计算机底层，操作对象大多为字节，浮点数等等。很难直接操作于如系统目录这样的对象。而脚本语言不一样，脚本语言">
 <meta property="og:image" content="http://yoursite.com/images/程序相关示意图.jpg">
-<meta property="og:updated_time" content="2016-05-24T07:37:22.614Z">
+<meta property="og:updated_time" content="2016-05-25T06:01:44.658Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell 初识：shell中的变量">
 <meta name="twitter:description" content="编译型语言和脚本语言无论大学毕业于计算机专业的程序员，还是半路出身的程序员，都应该是从编译型语言（如：C++,Java等）入门的。这类程序只要从源代码转换成目标代码，便能通过计算机来执行(Java 虽然并不是这样的，但也差不多是这种情况)。这种语言的好处就是高效，入门快。缺点也显而易见，运作于计算机底层，操作对象大多为字节，浮点数等等。很难直接操作于如系统目录这样的对象。而脚本语言不一样，脚本语言">
@@ -85,7 +85,7 @@
                             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Cercar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Cari" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -265,6 +265,35 @@
 <li>read: 读取标准输入<br>要读取来自键盘输入的变量，就是用 read 这个命令了。read 之后不加任何参数，直接加上变量名称，那么底下就会主动出现一个空白行等待你的输入。如果加上 -t 后面接秒数，那么 t 秒之内没有任何动作时， 该命令就会自动略过了。如果是加上 -p ，在输入的光标前就会有比较多可以用的提示字符给我们参考。如下：</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[root@bogon ~]# read [-pt] variable</span><br><span class="line">选项与参数：</span><br><span class="line">-p  ：后面可以接提示字符</span><br><span class="line">-t  ：后面可以接等待的『秒数』</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[root@bogon ~]# read atest</span><br><span class="line">This is a test        #此时光标会等待你输入</span><br><span class="line">[root@bogon~]# echo $atest</span><br><span class="line">This is a test          #你刚刚输入的数据已经变成一个变量内容！</span><br><span class="line"></span><br><span class="line">#提示使用者 30 秒内输入named</span><br><span class="line">[root@bogon ~]# read -p &quot;Please keyin your name: &quot; -t 30 named</span><br><span class="line">Please keyin your name: Joea   #注意看，会有提示字符喔！</span><br><span class="line">[root@bogon ~]# echo $named</span><br><span class="line">Joea        #输入的数据又变成一个变量的内容了！</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="变量删除，取代与替换"><a href="#变量删除，取代与替换" class="headerlink" title="变量删除，取代与替换"></a>变量删除，取代与替换</h2><p>变量除了可以以直接声明的方式来修改原本的内容之外，我们还可以通过一些简单的小步骤来对变量进行微调整。</p>
+<ul>
+<li>变量内容的删除与取代<br>我们以PATH这个变量的内容来做测试。先看下面的例子：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[root@bogon ~]# path=$PATH</span><br><span class="line">[root@bogon ~]# echo $path</span><br><span class="line">/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin   #未修改前的path</span><br><span class="line"></span><br><span class="line">#假设我们把前两个目录删除掉</span><br><span class="line">[root@bogon ~]# echo $&#123;path#/*local/bin:&#125;</span><br><span class="line">/sbin:/bin:/usr/sbin:/usr/bin:/root/bin</span><br></pre></td></tr></table></figure>
+<p>上面的例子可以用下面的内容来说明：</p>
+<blockquote>
+<font size="2"><br> ${}:这个是关键词，相当于把｛｝中的内容都看成一个变量<br> path:这个就是要操作的变量名<br> #:这里代表 『从变量内容的最前面开始向右删除』，直到匹配到第一个<br> /*local/bin::这里代表要被删除的部分，由于 # 代表由前面开始删除，所以这里便由开始的 / 写起。<br></font>
+
+</blockquote>
+<p>了解了#的功能，接下来看下面的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[root@bogon ~]# echo $path</span><br><span class="line">/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin #path被操作前的内容                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </span><br><span class="line">[root@bogon ~]# echo $&#123;path#/*:&#125;</span><br><span class="line">/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin</span><br><span class="line">#删除第一个：之前的目录</span><br><span class="line">[root@bogon ~]# echo $&#123;path##/*:&#125;</span><br><span class="line">/root/bin</span><br><span class="line"># 『##』表示删除最后一个匹配项前的所有内容</span><br></pre></td></tr></table></figure>
+<p>这里是非常有趣的，因为这里path的变量内容中，每个目录都是以：分隔的，所以删除目录就是删除从 / 到 ： 之间的数据。<br>既然有从开头开始删除变量内容，那么从尾部开始删除变量内容呢》这里就要用到 % 了。用法和 # 一样。</p>
+<p>了解了删除功能后，接下来谈谈取代吧：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[root@bogon ~]# echo $&#123;path/sbin/SBIN&#125;</span><br><span class="line">/usr/local/SBIN:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin  </span><br><span class="line">#这个部分就容易理解的多了！关键词在于那两个斜线，两斜线中间的是旧字符串</span><br><span class="line">#后面的是新字符串，所以结果就会出现第一个sbin呗SBIN取代</span><br><span class="line">[root@bogon ~]# echo $&#123;path//sbin/SBIN&#125;</span><br><span class="line">/usr/local/SBIN:/usr/local/bin:/SBIN:/bin:/usr/SBIN:/usr/bin:/root/bin</span><br><span class="line">##同样的道理，// 就代表这所有符合匹配的字符都会别取代</span><br></pre></td></tr></table></figure>
+<ul>
+<li>变量的测试和内容的替换<br>在某些时刻我们常常需要『判断』某个变量是否存在，若变量存在则使用既有的配置，若变量不存在则给予一个常用的配置。先看下面的例子：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon ~]# echo $name</span><br><span class="line">			#出现空白行，因为没有配置name的内容</span><br><span class="line">[root@bogon ~]# username=$&#123;name-root&#125;</span><br><span class="line">[root@bogon ~]# echo $username</span><br><span class="line">root		#由于name没有配置内容，所以把root配置给username</span><br><span class="line"></span><br><span class="line">[root@bogon ~]# name=&quot;Joea&quot;  #为name配置内容</span><br><span class="line">[root@bogon ~]# username=$&#123;name-root&#125; </span><br><span class="line">[root@bogon ~]# echo $username</span><br><span class="line">Joea   #由于name已经配置内容了，所以使用原有的内容为username配置内容</span><br></pre></td></tr></table></figure>
+<p>在上面的范例中，重点在于减号『 - 』后面接的关键词！基本上你可以这样理解：</p>
+<blockquote>
+<font size="2"><br>username: 新的变量，主要用来取代旧变量<br>${}: 关键词部分，必要的存在<br>name: 配置变量<br>root: 给予为配置变量的内容<br></font>
+
+</blockquote>
+<p>但是如果name被配置为『空字符串』，那么name也具有内容，这种情况下如何将username的内容设置为root呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[root@bogon ~]# name=&quot;&quot;</span><br><span class="line">[root@bogon ~]# username=$&#123;name-root&#125;</span><br><span class="line">[root@bogon ~]# echo $username</span><br><span class="line">			#出现空白行是因为name被配置为空字符串	</span><br><span class="line">[root@bogon ~]# username=$&#123;name:-root&#125;</span><br><span class="line">[root@bogon ~]# echo $username</span><br><span class="line">root   #加上 : 后若变量内容为空或者是未配置，都能够以后面的内容替换</span><br></pre></td></tr></table></figure>
+<p>在大括号内有没有冒号 : 的差别是很大的，加上冒号后，被测试的变量未被配置或者是已被配置为空字符串时， 都能够用后面的内容 (本例中是使用 root 为内容) 来替换与配置。除了这样的测试之外， 还有其他的测试方法如下：</p>
+<p><img src="/images/shell变量的替换.jpg" alt="shell中变量的替换"></p>
 
         </div>
         <footer class="article-footer">
